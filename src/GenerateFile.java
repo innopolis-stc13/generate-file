@@ -61,7 +61,6 @@ public class GenerateFile {
         return paragraphBefore + "\n";
     }
 
-
     public String makeText(int size, int probability, String[] words) {
         String text = "";
         while (countSentence < size) {
