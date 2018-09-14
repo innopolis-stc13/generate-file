@@ -47,9 +47,8 @@ public class GenerateFile {
 
         if (approveInsert(probability)) {
             sentence = replaceTheWord(sentence, words);
-            return sentence.substring(0, 0).toUpperCase() + sentence.substring(0, sentence.length() - 1) + punctuationMark[n];
         }
-        return sentence.substring(0, 1).toUpperCase() + sentence.substring(0, sentence.length() - 1) + punctuationMark[n];
+        return sentence.substring(0, 1).toUpperCase() + sentence.substring(1, sentence.length() - 1) + punctuationMark[n];
     }
 
     public String makeParagraph(int probability, String[] words) {
