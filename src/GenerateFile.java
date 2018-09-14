@@ -17,7 +17,7 @@ public class GenerateFile {
         }
     }
 
-    public String makeWord() {
+    private String makeWord() {
         int maxLettersInWord = 15;
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         String word = "";
@@ -30,7 +30,7 @@ public class GenerateFile {
         return word;
     }
 
-    public String makeSentence(int probability, String[] words) {
+    private String makeSentence(int probability, String[] words) {
         int maxWordsInSentence = 15;
         Random random = new Random();
         int randomLen = 1 + random.nextInt(maxWordsInSentence - 1);
@@ -51,7 +51,7 @@ public class GenerateFile {
         return sentence.substring(0, 1).toUpperCase() + sentence.substring(1, sentence.length() - 1) + punctuationMark[n];
     }
 
-    public String makeParagraph(int probability, String[] words) {
+    private String makeParagraph(int probability, String[] words) {
         int maxSentenceInParagraph = 20;
         Random random = new Random();
         int randomLen = 1 + random.nextInt(maxSentenceInParagraph - 1);
@@ -64,7 +64,7 @@ public class GenerateFile {
         return paragraphBefore + "\n";
     }
 
-    public String makeText(int size, int probability, String[] words) {
+    private String makeText(int size, int probability, String[] words) {
         String text = "";
         while (countSentence < size) {
             text += makeParagraph(probability, words);
@@ -72,17 +72,17 @@ public class GenerateFile {
         return text;
     }
 
-    public Boolean approveInsert(int probability) {
+    private Boolean approveInsert(int probability) {
         Random random = new Random();
         return random.nextInt() < 1 / probability ? true : false;
     }
 
-    public String getWordFromArray(String[] words) {
+    private String getWordFromArray(String[] words) {
         int n = (int) Math.floor(Math.random() * words.length);
         return words[n];
     }
 
-    public String replaceTheWord(String sentence, String[] words) {
+    private String replaceTheWord(String sentence, String[] words) {
         String[] wordGenerate = sentence.split(" ");
         int n = (int) Math.floor(Math.random() * wordGenerate.length);
         wordGenerate[n] = getWordFromArray(words);
