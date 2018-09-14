@@ -36,7 +36,7 @@ public class GenerateFile {
         int randomLen = 1 + random.nextInt(maxWordsInSentence - 1);
         String sentence = "";
         for (int i = 0; i < randomLen; i++) {
-            String[] spaceOrComma = new String[]{" ", ", "};
+            String[] spaceOrComma = new String[]{" ", ","};
             int n = (int) Math.floor(Math.random() * spaceOrComma.length);
             sentence += makeWord() + spaceOrComma[n];
         }
