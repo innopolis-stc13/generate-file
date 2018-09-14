@@ -40,11 +40,15 @@ public class GenerateFile {
             int n = (int) Math.floor(Math.random() * spaceOrComma.length);
             sentence += makeWord() + spaceOrComma[n];
         }
-        if (approveInsert(probability)) {
-            sentence = replaceTheWord(sentence, words);
-        }
+
         String[] punctuationMark = new String[]{".", "!", "?"};
         int n = (int) Math.floor(Math.random() * punctuationMark.length);
+
+
+        if (approveInsert(probability)) {
+            sentence = replaceTheWord(sentence, words);
+            return sentence.substring(0, 0).toUpperCase() + sentence.substring(0, sentence.length() - 1) + punctuationMark[n];
+        }
         return sentence.substring(0, 1).toUpperCase() + sentence.substring(0, sentence.length() - 1) + punctuationMark[n];
     }
 
