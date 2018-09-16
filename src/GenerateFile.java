@@ -41,12 +41,16 @@ public class GenerateFile {
             sentence += makeWord() + spaceOrComma[n];
         }
 
-        String[] punctuationMark = new String[]{".", "!", "?"};
+        String[] punctuationMark = new String[]{".", "!", "?", "..."};
         int n = (int) Math.floor(Math.random() * punctuationMark.length);
 
 
         if (approveInsert(probability)) {
             sentence = replaceTheWord(sentence, words);
+        }
+
+        if ((sentence.charAt(sentence.length() - 2)) == ',') {
+            sentence = sentence.substring(0, sentence.length() - 1);
         }
         return sentence.substring(0, 1).toUpperCase() + sentence.substring(1, sentence.length() - 1) + punctuationMark[n];
     }
